@@ -36,7 +36,7 @@ class ItemComent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(10.0),
+      padding: const EdgeInsets.fromLTRB(12, 30, 12, 0),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15.0),
@@ -88,17 +88,17 @@ class ItemComent extends StatelessWidget {
                         children: [
                           Container(
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15.0),
+                              borderRadius: BorderRadius.circular(25.0),
                               color: Color.fromARGB(255, 242, 242, 242),
                             ),
                             child: Padding(
-                              padding: const EdgeInsets.all(6.0),
+                              padding: const EdgeInsets.fromLTRB(15, 3, 15, 3),
                               child: Row(
                                 children: [
                                   Icon(Icons.attach_file_rounded),
                                   SizedBox(width: 4),
                                   Text(
-                                    "$numeroArchivos Documentos Adjuntos",
+                                    "$numeroArchivos file attach...",
                                     style: TextStyle(
                                       fontSize: 12,
                                     ),
