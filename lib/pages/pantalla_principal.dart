@@ -1,4 +1,6 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:reto_disenio_2/models/coment_model.dart';
 import 'package:reto_disenio_2/widgets/item_coment.dart';
 
 class PantallaPrincipal extends StatefulWidget {
@@ -7,10 +9,52 @@ class PantallaPrincipal extends StatefulWidget {
 }
 
 class _PantallaPrincipalState extends State<PantallaPrincipal> {
+  List<ComentModel> comentList = [
+    ComentModel(
+      nombre: 'Carlos León',
+      asunto: 'Finished the part of UX',
+      contenido:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      numeroArchivos: 1,
+      favorito: true,
+      email: 'admin@gmail.com',
+      horaEnvio: '11:30 am',
+      statusEmail: Random().nextInt(3),
+    ),
+  ];
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.blueGrey[50],
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.blue[600],
+        onPressed: () {
+          ComentModel nuevoComentario = ComentModel(
+            nombre: 'Melvin Sherman',
+            asunto: 'Fonts,Mockups & Templates',
+            contenido:
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+            numeroArchivos: Random().nextInt(6),
+            favorito: false,
+            email: 'admin2@gmail.com',
+            horaEnvio: '11:30 am',
+            statusEmail: Random().nextInt(3),
+          );
+          comentList.add(nuevoComentario);
+          setState(() {});
+        },
+        child: const Icon(
+          Icons.add,
+          size: 50.0,
+          color: Colors.white,
+        ),
+      ),
       appBar: AppBar(
         backgroundColor: Colors.blueGrey[50],
         leading: Icon(
@@ -65,27 +109,17 @@ class _PantallaPrincipalState extends State<PantallaPrincipal> {
               ),
             ],
           ),
-          ItemComent(
-              nombre: 'Carlos León',
-              asunto: 'Prueba Email',
-              contenido: 'Contenido correo de prueba.',
-              numeroArchivos: 1,
-              favorito: true,
-              email: 'cloen@gmail.com',
-              horaEnvio: '10:00 am',
-              statusEmail: 'No Leido'),
+          ...comentList.map((e) => ItemComent(
+                nombre: e.nombre,
+                asunto: e.asunto,
+                contenido: e.contenido,
+                numeroArchivos: e.numeroArchivos,
+                favorito: e.favorito,
+                email: e.email,
+                horaEnvio: e.horaEnvio,
+                statusEmail: e.statusEmail,
+              )),
         ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.blue[600],
-        onPressed: () {
-          // Add your onPressed code here!
-        },
-        child: const Icon(
-          Icons.add,
-          size: 50.0,
-          color: Colors.white,
-        ),
       ),
     );
   }

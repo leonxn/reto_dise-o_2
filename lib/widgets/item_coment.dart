@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:reto_disenio_2/models/coment_model.dart';
 
 class ItemComent extends StatelessWidget {
-  String nombre;
-  String asunto;
-  String contenido;
-  int numeroArchivos;
-  bool favorito;
-  String email;
-  String horaEnvio;
-  String statusEmail;
+  final String nombre;
+  final String asunto;
+  final String contenido;
+  final int numeroArchivos;
+  final bool favorito;
+  final String email;
+  final String horaEnvio;
+  final int statusEmail;
 
   ItemComent({
     required this.nombre,
@@ -20,12 +21,13 @@ class ItemComent extends StatelessWidget {
     required this.horaEnvio,
     required this.statusEmail,
   });
-
-  Color validarColorEstado(String estado) {
-    if (estado == "Recibido") {
+  Color validarColorEstado(int estado) {
+    if (estado == 1) {
       return Colors.green;
-    } else {
+    } else if (estado == 2) {
       return Colors.red;
+    } else {
+      return Colors.yellow;
     }
   }
 
