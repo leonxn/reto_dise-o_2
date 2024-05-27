@@ -2,6 +2,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:reto_disenio_2/models/coment_model.dart';
 import 'package:reto_disenio_2/widgets/item_coment.dart';
+import 'package:reto_disenio_2/constans/constans.dart';
 
 class PantallaPrincipal extends StatefulWidget {
   @override
@@ -31,9 +32,9 @@ class _PantallaPrincipalState extends State<PantallaPrincipal> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey[50],
+      backgroundColor: colorFondo,
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.blue[600],
+        backgroundColor: colorPrimario,
         onPressed: () {
           ComentModel nuevoComentario = ComentModel(
             nombre: 'Melvin Sherman',
@@ -59,13 +60,13 @@ class _PantallaPrincipalState extends State<PantallaPrincipal> {
         backgroundColor: Colors.blueGrey[50],
         leading: Icon(
           Icons.sort,
-          color: Colors.blueGrey[700],
+          color: colorIcono,
         ),
         title: Center(
           child: Text(
             "Email",
             style: TextStyle(
-              color: Colors.blueGrey[700],
+              color: colorIcono,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -76,7 +77,10 @@ class _PantallaPrincipalState extends State<PantallaPrincipal> {
               left: 5,
               right: 15,
             ),
-            child: Icon(Icons.search, color: Colors.blueGrey[700]),
+            child: Icon(
+              Icons.search,
+              color: colorIcono,
+            ),
           ),
         ],
       ),
@@ -87,25 +91,15 @@ class _PantallaPrincipalState extends State<PantallaPrincipal> {
             children: [
               Text(
                 'Inbox',
-                style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.blue[600],
-                ),
+                style: tabActivo,
               ),
               Text(
                 'Sent',
-                style: TextStyle(
-                  fontSize: 22,
-                  color: Colors.blueGrey[200],
-                ),
+                style: tabInactivo,
               ),
               Text(
                 'Draft',
-                style: TextStyle(
-                  fontSize: 22,
-                  color: Colors.blueGrey[200],
-                ),
+                style: tabInactivo,
               ),
             ],
           ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:reto_disenio_2/constans/constans.dart';
 
 class ItemComent extends StatelessWidget {
   final String nombre;
@@ -40,7 +41,7 @@ class ItemComent extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15.0),
-          color: Colors.white,
+          color: colorContenedor,
         ),
         child: Padding(
           padding: const EdgeInsets.all(7.0),
@@ -48,7 +49,6 @@ class ItemComent extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
                     padding: EdgeInsets.fromLTRB(15, 15, 0, 0),
@@ -68,9 +68,7 @@ class ItemComent extends StatelessWidget {
                     children: [
                       Text(
                         nombre,
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style: titulo,
                       ),
                       Text(horaEnvio),
                     ],
@@ -79,9 +77,15 @@ class ItemComent extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(height: 4),
-                      Text(asunto),
+                      Text(
+                        asunto,
+                        style: subtitulo,
+                      ),
                       SizedBox(height: 8),
-                      Text(contenido),
+                      Text(
+                        contenido,
+                        style: textoNormal,
+                      ),
                       SizedBox(height: 8),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -89,7 +93,7 @@ class ItemComent extends StatelessWidget {
                           Container(
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(25.0),
-                              color: Color.fromARGB(255, 242, 242, 242),
+                              color: colorFondo,
                             ),
                             child: Padding(
                               padding: const EdgeInsets.fromLTRB(15, 3, 15, 3),
@@ -112,8 +116,8 @@ class ItemComent extends StatelessWidget {
                             icon: Icon(
                               Icons.star_sharp,
                               color: favorito == false
-                                  ? Colors.grey[400]
-                                  : Colors.yellow[600],
+                                  ? colorFavoritoInactivo
+                                  : colorFavoritoActivo,
                             ),
                             onPressed: funcionFavoritos,
                           ),
