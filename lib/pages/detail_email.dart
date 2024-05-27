@@ -23,7 +23,7 @@ class DetailEmail extends StatelessWidget {
       ),
       body: Center(
         child: Text(
-          'Prueba de nueva venta',
+          'Prueba de nueva ventana',
           style: TextStyle(
             fontSize: 24,
           ),
