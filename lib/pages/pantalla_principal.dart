@@ -16,9 +16,9 @@ class _PantallaPrincipalState extends State<PantallaPrincipal> {
       contenido:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
       numeroArchivos: 1,
-      favorito: true,
       email: 'admin@gmail.com',
       horaEnvio: '11:30 am',
+      favorito: true,
       statusEmail: Random().nextInt(3),
     ),
   ];
@@ -41,9 +41,9 @@ class _PantallaPrincipalState extends State<PantallaPrincipal> {
             contenido:
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
             numeroArchivos: Random().nextInt(6),
-            favorito: false,
             email: 'admin2@gmail.com',
             horaEnvio: '11:30 am',
+            favorito: false,
             statusEmail: Random().nextInt(3),
           );
           comentList.add(nuevoComentario);
@@ -109,16 +109,32 @@ class _PantallaPrincipalState extends State<PantallaPrincipal> {
               ),
             ],
           ),
-          ...comentList.map((e) => ItemComent(
-                nombre: e.nombre,
-                asunto: e.asunto,
-                contenido: e.contenido,
-                numeroArchivos: e.numeroArchivos,
-                favorito: e.favorito,
-                email: e.email,
-                horaEnvio: e.horaEnvio,
-                statusEmail: e.statusEmail,
-              )),
+          ...comentList.map(
+            (e) => ItemComent(
+              nombre: e.nombre,
+              asunto: e.asunto,
+              contenido: e.contenido,
+              numeroArchivos: e.numeroArchivos,
+              email: e.email,
+              horaEnvio: e.horaEnvio,
+              statusEmail: e.statusEmail,
+              favorito: e.favorito,
+              funcionFavoritos: () {
+                print("add Favorites");
+                print(comentList.indexOf(e));
+                print(e.favorito);
+                setState(
+                  () {
+                    if (e.favorito == true) {
+                      e.favorito = false;
+                    } else {
+                      e.favorito = true;
+                    }
+                  },
+                );
+              },
+            ),
+          ),
         ],
       ),
     );

@@ -6,21 +6,24 @@ class ItemComent extends StatelessWidget {
   final String asunto;
   final String contenido;
   final int numeroArchivos;
-  final bool favorito;
   final String email;
   final String horaEnvio;
   final int statusEmail;
+  final bool favorito;
+  VoidCallback funcionFavoritos;
 
   ItemComent({
     required this.nombre,
     required this.asunto,
     required this.contenido,
     required this.numeroArchivos,
-    required this.favorito,
     required this.email,
     required this.horaEnvio,
     required this.statusEmail,
+    required this.funcionFavoritos,
+    required this.favorito,
   });
+
   Color validarColorEstado(int estado) {
     if (estado == 1) {
       return Colors.green;
@@ -106,12 +109,21 @@ class ItemComent extends StatelessWidget {
                             ),
                           ),
                           Text(email),
-                          Icon(
-                            Icons.star_sharp,
-                            color: favorito
-                                ? Colors.yellow[600]
-                                : Colors.grey[400],
+                          IconButton(
+                            icon: Icon(
+                              Icons.star_sharp,
+                              color: favorito == false
+                                  ? Colors.grey[400]
+                                  : Colors.yellow[600],
+                            ),
+                            onPressed: funcionFavoritos,
                           ),
+                          //Icon(
+                          //  Icons.star_sharp,
+                          //  color: favorito
+                          //      ? Colors.yellow[600]
+                          //      : Colors.grey[400],
+                          //),
                         ],
                       ),
                     ],
