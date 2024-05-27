@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class ComentModel {
   String nombre;
   String asunto;

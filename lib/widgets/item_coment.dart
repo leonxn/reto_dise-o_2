@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:reto_disenio_2/models/coment_model.dart';
 
 class ItemComent extends StatelessWidget {
   final String nombre;
