@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:reto_disenio_2/models/coment_model.dart';
 import 'package:reto_disenio_2/widgets/item_coment.dart';
 import 'package:reto_disenio_2/constans/constans.dart';
+import 'detail_email.dart';
 
 class PantallaPrincipal extends StatefulWidget {
   @override
@@ -10,8 +11,8 @@ class PantallaPrincipal extends StatefulWidget {
 }
 
 class _PantallaPrincipalState extends State<PantallaPrincipal> {
-  List<ComentModel> comentList = [
-    ComentModel(
+  List<EmailModel> emailList = [
+    EmailModel(
       nombre: 'Carlos León',
       asunto: 'Finished the part of UX',
       contenido:
@@ -36,7 +37,7 @@ class _PantallaPrincipalState extends State<PantallaPrincipal> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: colorPrimario,
         onPressed: () {
-          ComentModel nuevoComentario = ComentModel(
+          EmailModel nuevoEmail = EmailModel(
             nombre: 'Melvin Sherman',
             asunto: 'Fonts,Mockups & Templates',
             contenido:
@@ -47,7 +48,7 @@ class _PantallaPrincipalState extends State<PantallaPrincipal> {
             favorito: false,
             statusEmail: Random().nextInt(3),
           );
-          comentList.add(nuevoComentario);
+          emailList.add(nuevoEmail);
           setState(() {});
         },
         child: const Icon(
@@ -57,7 +58,7 @@ class _PantallaPrincipalState extends State<PantallaPrincipal> {
         ),
       ),
       appBar: AppBar(
-        backgroundColor: Colors.blueGrey[50],
+        backgroundColor: colorFondo,
         leading: Icon(
           Icons.sort,
           color: colorIcono,
@@ -84,52 +85,61 @@ class _PantallaPrincipalState extends State<PantallaPrincipal> {
           ),
         ],
       ),
-      body: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Text(
-                'Inbox',
-                style: tabActivo,
-              ),
-              Text(
-                'Sent',
-                style: tabInactivo,
-              ),
-              Text(
-                'Draft',
-                style: tabInactivo,
-              ),
-            ],
-          ),
-          ...comentList.map(
-            (e) => ItemComent(
-              nombre: e.nombre,
-              asunto: e.asunto,
-              contenido: e.contenido,
-              numeroArchivos: e.numeroArchivos,
-              email: e.email,
-              horaEnvio: e.horaEnvio,
-              statusEmail: e.statusEmail,
-              favorito: e.favorito,
-              funcionFavoritos: () {
-                print("add Favorites");
-                print(comentList.indexOf(e));
-                print(e.favorito);
-                setState(
-                  () {
-                    if (e.favorito == true) {
-                      e.favorito = false;
-                    } else {
-                      e.favorito = true;
-                    }
-                  },
-                );
-              },
+      body: GestureDetector(
+        onTap: () {
+          print("prueba venta nueva");
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => DetailEmail()),
+          );
+        },
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Text(
+                  'Inbox',
+                  style: tabActivo,
+                ),
+                Text(
+                  'Sent',
+                  style: tabInactivo,
+                ),
+                Text(
+                  'Draft',
+                  style: tabInactivo,
+                ),
+              ],
             ),
-          ),
-        ],
+            ...emailList.map(
+              (e) => ItemEmail(
+                nombre: e.nombre,
+                asunto: e.asunto,
+                contenido: e.contenido,
+                numeroArchivos: e.numeroArchivos,
+                email: e.email,
+                horaEnvio: e.horaEnvio,
+                statusEmail: e.statusEmail,
+                favorito: e.favorito,
+                funcionFavoritos: () {
+                  print("add Favorites");
+                  print(emailList.indexOf(e));
+                  print(e.favorito);
+                  setState(
+                    () {
+                      if (e.favorito == true) {
+                        e.favorito = false;
+                      } else {
+                        e.favorito = true;
+                      }
+                    },
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

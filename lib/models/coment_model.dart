@@ -1,4 +1,4 @@
-class ComentModel {
+class EmailModel {
   String nombre;
   String asunto;
   String contenido;
@@ -8,7 +8,7 @@ class ComentModel {
   int statusEmail;
   bool favorito;
 
-  ComentModel({
+  EmailModel({
     required this.nombre,
     required this.asunto,
     required this.contenido,

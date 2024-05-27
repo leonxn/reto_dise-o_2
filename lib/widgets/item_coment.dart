@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:reto_disenio_2/constans/constans.dart';
 
-class ItemComent extends StatelessWidget {
+class ItemEmail extends StatelessWidget {
   final String nombre;
   final String asunto;
   final String contenido;
@@ -12,7 +12,7 @@ class ItemComent extends StatelessWidget {
   final bool favorito;
   VoidCallback funcionFavoritos;
 
-  ItemComent({
+  ItemEmail({
     required this.nombre,
     required this.asunto,
     required this.contenido,
