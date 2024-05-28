@@ -143,26 +143,71 @@ class DetailEmail extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(12.0),
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Column(
+                        Row(
                           children: [
-                            Text("icono"),
+                            Image.asset(
+                              'assets/iconos/carpeta.png',
+                              width: 50,
+                            ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 10),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "2 File Attachment",
+                                    style: titulo,
+                                  ),
+                                  Text(
+                                    "5.6 mb",
+                                    style: subtitulo,
+                                  ),
+                                ],
+                              ),
+                            ),
                           ],
                         ),
                         Column(
                           children: [
-                            Text("2 File Attachment"),
-                            Text("5.6 mb"),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Text("icono"),
+                            Icon(
+                              Icons.download_for_offline_outlined,
+                              color: colorPrimario,
+                            ),
                           ],
                         ),
                       ],
                     ),
                   ),
+                ),
+                SizedBox(
+                  height: 25,
+                ),
+                Divider(),
+                SizedBox(
+                  height: 25,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Icon(
+                      Icons.reply,
+                      color: colorIcono,
+                      size: 25,
+                    ),
+                    Icon(
+                      Icons.delete,
+                      color: colorIcono,
+                      size: 25,
+                    ),
+                    Icon(
+                      Icons.star,
+                      color: colorFavoritoActivo,
+                      size: 25,
+                    ),
+                  ],
                 ),
               ],
             ),
