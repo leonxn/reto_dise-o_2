@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:reto_disenio_2/constans/constans.dart';
 
 class DetailEmail extends StatelessWidget {
