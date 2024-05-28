@@ -1,7 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:reto_disenio_2/models/coment_model.dart';
-import 'package:reto_disenio_2/widgets/item_coment.dart';
+import 'package:reto_disenio_2/models/email_model.dart';
+import 'package:reto_disenio_2/widgets/item_email.dart';
 import 'package:reto_disenio_2/constans/constans.dart';
 import 'detail_email.dart';
 
