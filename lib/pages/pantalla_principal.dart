@@ -1,7 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:reto_disenio_2/models/email_model.dart';
-import 'package:reto_disenio_2/widgets/item_email.dart';
+import 'package:reto_disenio_2/widgets/widgets_mailbox/item_email.dart';
 import 'package:reto_disenio_2/constans/constans.dart';
 import 'detail_email.dart';
 
@@ -30,27 +30,29 @@ class _PantallaPrincipalState extends State<PantallaPrincipal> {
     super.initState();
   }
 
+  void agregarNuevoEmail() {
+    EmailModel nuevoEmail = EmailModel(
+      nombre: 'Melvin Sherman',
+      asunto: 'Fonts,Mockups & Templates',
+      contenido:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      numeroArchivos: Random().nextInt(6),
+      email: 'admin2@gmail.com',
+      horaEnvio: '11:30 am',
+      favorito: false,
+      statusEmail: Random().nextInt(3),
+    );
+    emailList.add(nuevoEmail);
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: colorFondo,
       floatingActionButton: FloatingActionButton(
         backgroundColor: colorPrimario,
-        onPressed: () {
-          EmailModel nuevoEmail = EmailModel(
-            nombre: 'Melvin Sherman',
-            asunto: 'Fonts,Mockups & Templates',
-            contenido:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-            numeroArchivos: Random().nextInt(6),
-            email: 'admin2@gmail.com',
-            horaEnvio: '11:30 am',
-            favorito: false,
-            statusEmail: Random().nextInt(3),
-          );
-          emailList.add(nuevoEmail);
-          setState(() {});
-        },
+        onPressed: agregarNuevoEmail,
         child: const Icon(
           Icons.add,
           size: 50.0,

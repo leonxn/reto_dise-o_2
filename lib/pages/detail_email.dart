@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:reto_disenio_2/constans/constans.dart';
+import 'package:reto_disenio_2/widgets/widgets_detail/item_actions.dart';
+import 'package:reto_disenio_2/widgets/widgets_detail/item_attachment.dart';
+import 'package:reto_disenio_2/widgets/widgets_detail/item_head_mail.dart';
 
 class DetailEmail extends StatelessWidget {
   @override
@@ -35,49 +38,7 @@ class DetailEmail extends StatelessWidget {
                     ),
                   ],
                 ),
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 0, vertical: 10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        children: [
-                          Row(
-                            children: [
-                              CircleAvatar(
-                                radius: 35.0,
-                                backgroundImage: NetworkImage(
-                                    "https://cnnespanol.cnn.com/wp-content/uploads/2019/05/grumpy-cat-foto.jpg?quality=100&strip=info"),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      "Carlos León",
-                                      style: titulo,
-                                    ),
-                                    Text(
-                                      "cleon0505@gmail.com",
-                                      style: subtitulo,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          Text("10:30 am"),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
+                ItemHeadMail(),
                 SizedBox(
                   height: 14,
                 ),
@@ -134,53 +95,7 @@ class DetailEmail extends StatelessWidget {
                 SizedBox(
                   height: 25,
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5.0),
-                    color: colorFondo,
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            Image.asset(
-                              'assets/iconos/carpeta.png',
-                              width: 50,
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 10),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "2 File Attachment",
-                                    style: titulo,
-                                  ),
-                                  Text(
-                                    "5.6 mb",
-                                    style: subtitulo,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Icon(
-                              Icons.download_for_offline_outlined,
-                              color: colorPrimario,
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+                ItemAttachment(),
                 SizedBox(
                   height: 25,
                 ),
@@ -188,26 +103,7 @@ class DetailEmail extends StatelessWidget {
                 SizedBox(
                   height: 25,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Icon(
-                      Icons.reply,
-                      color: colorIcono,
-                      size: 25,
-                    ),
-                    Icon(
-                      Icons.delete,
-                      color: colorIcono,
-                      size: 25,
-                    ),
-                    Icon(
-                      Icons.star,
-                      color: colorFavoritoActivo,
-                      size: 25,
-                    ),
-                  ],
-                ),
+                ItemActions(),
               ],
             ),
           ),
