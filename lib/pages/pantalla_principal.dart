@@ -36,7 +36,7 @@ class _PantallaPrincipalState extends State<PantallaPrincipal> {
       asunto: 'Fonts,Mockups & Templates',
       contenido:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      numeroArchivos: Random().nextInt(6),
+      numeroArchivos: Random().nextInt(6) + 1,
       email: 'admin2@gmail.com',
       horaEnvio: '11:30 am',
       favorito: false,
