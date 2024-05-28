@@ -87,7 +87,7 @@ class _PantallaPrincipalState extends State<PantallaPrincipal> {
       ),
       body: GestureDetector(
         onTap: () {
-          print("prueba venta nueva");
+          print("prueba ventana nueva");
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => DetailEmail()),

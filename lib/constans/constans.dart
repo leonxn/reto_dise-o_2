@@ -13,6 +13,12 @@ final TextStyle titulo = TextStyle(
   fontWeight: FontWeight.bold,
 );
 
+final TextStyle enlace = TextStyle(
+  fontSize: 18,
+  fontWeight: FontWeight.bold,
+  color: Colors.blue[600],
+);
+
 final TextStyle subtitulo = TextStyle(
   fontSize: 15,
   fontWeight: FontWeight.w500,
