@@ -26,10 +26,13 @@ class ItemEmail extends StatelessWidget {
 
   Color validarColorEstado(int estado) {
     if (estado == 1) {
+      //LEIDO
       return Colors.green;
     } else if (estado == 2) {
+      //NO LEIDO
       return Colors.red;
     } else {
+      //BORRADOR
       return Colors.yellow;
     }
   }
